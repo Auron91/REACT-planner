@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 const EditTask = ({ editedTask, setToggleModal, handleEdit }) => {
-    const form = document.querySelector('#edit-input');
     const [editValue, setEditValue] = useState(editedTask)
 
     const onFormSubmit = (e, editValue, id) => {
@@ -13,10 +12,6 @@ const EditTask = ({ editedTask, setToggleModal, handleEdit }) => {
         document.querySelector('#edit-input').focus();
         setEditValue(editedTask.body);
     }, [editedTask.body])
-
-    // const handleSave = (body, id) => {
-    //     handleEdit(body, id);
-    // }  onClick={() => handleSave(editValue, editedTask.id)}
 
     return (
         <div className="">
