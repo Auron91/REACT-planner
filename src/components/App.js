@@ -23,10 +23,18 @@ function App() {
     }
 
     const handleEdit = (body, id) => {
-        const newTasks = tasks;
-        const taskIndex = newTasks.findIndex((element) => element.id === id);
-        newTasks[taskIndex] = {...newTasks[taskIndex], body};
+        // const newTasks = tasks;
+        // const taskIndex = newTasks.findIndex((element) => element.id === id);
+        // newTasks[taskIndex] = {...newTasks[taskIndex], body};
+        const newTasks = tasks.map(task => {
+            console.log(task);
+            if(task.id === id) {
+                return {body, id};
+            } else return task;
+        })
+        setTasks(newTasks);
         setToggleModal(!toggleModal);
+        console.log(newTasks);
     }
 
     const handleDelete = (id) => {
